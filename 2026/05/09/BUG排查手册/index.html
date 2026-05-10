@@ -1,0 +1,133 @@
+<!DOCTYPE html><html lang="cn" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>BUG排查手册 | RngAd33的网络安全笔记</title><link rel="icon" type="image/x-icon" href="/blog233.github.io/favicon.ico"><link rel="preload" as="font" crossorigin="anonymous" href="/blog233.github.io/font/Bender.ttf"><link rel="preload" as="font" crossorigin="anonymous" href="/blog233.github.io/font/BenderLight.ttf"><link rel="preload" as="font" crossorigin="anonymous" href="/blog233.github.io/font/JetBrainsMono-Regular.woff2"><link rel="stylesheet" href="/blog233.github.io/css/arknights.css"><style>@font-face {
+  font-family: Bender;
+  src: local('Bender'), url("/blog233.github.io/font/Bender.ttf"), url("/blog233.github.io/font/Bender.otf");
+}
+@font-face {
+  font-family: BenderLight;
+  src: local('BenderLight'), url("/blog233.github.io/font/BenderLight.ttf");
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local('JetBrains Mono'), url('/blog233.github.io/font/JetBrainsMono-Regular.woff2') format('woff2');
+}
+</style><script>var config = {"root":"/blog233.github.io/","search":{"preload":false,"activeHolder":"Enter here","blurHolder":"Search","noResult":"Data \"$0\" not found"},"code":{"codeInfo":"$0 - $1 lines","copy":"copy"}}</script><link type="text/css" rel="stylesheet" href="/blog233.github.io/lib/encrypt/hbe.style.css"><script src="//unpkg.com/mermaid@10.5.0/dist/mermaid.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script><script>MathJax.Hub.Config({
+ menuSettings: {
+   zoom: "None"
+ },
+ showMathMenu: false,
+ jax: ["input/TeX","output/CommonHTML"],
+ extensions: ["tex2jax.js"],
+ TeX: {
+   extensions: ["AMSmath.js","AMSsymbols.js"],
+   equationNumbers: {
+     autoNumber: "AMS"
+   }
+ },
+ tex2jax: {
+   inlineMath: [["\\(", "\\)"]],
+   displayMath: [["\\[", "\\]"]]
+ }
+});</script><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/blog233.github.io/lib/fontawesome/css/all.min.css"><script>if (window.localStorage.getItem('theme-mode') === 'light')
+ document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark')
+ document.documentElement.setAttribute('theme-mode', 'dark')</script><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/blog233.github.io/font/BenderLight.woff2") format('woff2');
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/blog233.github.io/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><style>:root {
+ --dark-background: url('/blog233.github.io/img/bg.webp');
+ --light-background: url('/blog233.github.io/img/bk.webp');
+ --theme-encrypt-confirm: 'confirm'
+}</style><script defer src="/blog233.github.io/js/arknights.js"></script><script defer src="/blog233.github.io/js/search.js"></script><script defer type="module">import mermaid from '//unpkg.com/mermaid@10.5.0/dist/mermaid.esm.mjs';
+window.mermaid = mermaid;
+code.paintMermaid();
+</script><script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script><script>MathJax.Hub.Config({
+  menuSettings: {
+    zoom: "None"
+  },
+  showMathMenu: false,
+  jax: ["input/TeX","output/CommonHTML"],
+  extensions: ["tex2jax.js"],
+  TeX: {
+    extensions: ["AMSmath.js","AMSsymbols.js"],
+    equationNumbers: {
+      autoNumber: "AMS"
+    }
+  },
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]]
+  }
+});
+</script><script async src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script async src="/blog233.github.io/lib/encrypt/hbe.js"></script><script async src="/blog233.github.io/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js','data-pjax','.busuanzi'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup" tabindex="0"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/blog233.github.io/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/blog233.github.io/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>BUG排查手册</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2026-05-09T07:26:57.516Z" id="date"> 2026-05-09</time></div></span><br><span>Last Update: <div class="control"><time datetime="2026-05-09T08:03:12.941Z" id="updated"> 2026-05-09</time></div></span></div></div><hr><div id="post-content"><p>安全无止境，继续前进吧！</p>
+<p>又遇到问题了，博士？<br>工程部已经积累了充足的经验哦！<br>– by </p>
+<p class='item-img' data-src='/blog233.github.io/./img/128952859_p0.webp'><img src="/blog233.github.io/./img/128952859_p0.webp"></p>
+<p><strong>这个小板块更偏向信息系统开发技术，主要讲述 Java Web 开发过程中的常见 BUG 以及解决方法</strong></p>
+<h1 id="Spring-Boot-启动失败"><a href="#Spring-Boot-启动失败" class="headerlink" title="Spring Boot 启动失败"></a>Spring Boot 启动失败</h1><h2 id="端口占用"><a href="#端口占用" class="headerlink" title="端口占用"></a>端口占用</h2><p>application.yml配置文件中一般会指定启动端口（没指定则默认 8080 端口）<br>如果目标端口被占用，就会出现以下报错信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash">***************************<br>APPLICATION FAILED TO START<br>***************************<br><br>Description:<br><br>Web server failed to start. Port 8080 was already <span class="hljs-keyword">in</span> use.<br><br>Action:<br><br>Identify and stop the process that<span class="hljs-string">&#x27;s listening on port 8080 or configure this application to listen on another port.</span><br><span class="hljs-string"></span><br><span class="hljs-string"></span><br><span class="hljs-string">Process finished with exit code 1</span><br></code></pre></td></tr></table></figure>
+<p>建议更换端口号，必要时关闭占用端口的进程；</p>
+<h2 id="依赖注入失败"><a href="#依赖注入失败" class="headerlink" title="依赖注入失败"></a>依赖注入失败</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs bash">***************************<br>APPLICATION FAILED TO START<br>***************************<br><br>Description:<br><br>A component required a bean of <span class="hljs-built_in">type</span> <span class="hljs-string">&#x27;com.rngad33.ark.service.ThumbService&#x27;</span> that could not be found.<br><br><br>Action:<br><br>Consider defining a bean of <span class="hljs-built_in">type</span> <span class="hljs-string">&#x27;com.rngad33.ark.service.ThumbService&#x27;</span> <span class="hljs-keyword">in</span> your configuration.<br><br><br>Process finished with <span class="hljs-built_in">exit</span> code 1<br></code></pre></td></tr></table></figure>
+<p>检查要注册的类是否打上了 @Component，@Service 等注解；</p>
+<h2 id="循环依赖"><a href="#循环依赖" class="headerlink" title="循环依赖"></a>循环依赖</h2><p>Spring IOC 容器注册 Bean 对象存在这样一个机制：如果待注册对象存在依赖的对象，则会优先注册被依赖对象，依此类推；<br>如果出现了这样一种情况：A 依赖 B，B 依赖 C，C 又依赖 A，就会发生相互等待现象，导致框架启动失败，这种现象就是循环依赖；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs bash">***************************<br>APPLICATION FAILED TO START<br>***************************<br><br>Description:<br><br>The dependencies of some of the beans <span class="hljs-keyword">in</span> the application context form a cycle:<br><br>   pictureController<br>      ↓<br>   myCacheManager<br>┌─────┐<br>|  pictureServiceImpl<br>↑     ↓<br>|  jsoupTemplateFromBing<br>└─────┘<br><br><br>Action:<br><br>Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to <span class="hljs-built_in">break</span> the cycle automatically by setting spring.main.allow-circular-references to <span class="hljs-literal">true</span>.<br><br><br>Process finished with <span class="hljs-built_in">exit</span> code 1<br></code></pre></td></tr></table></figure>
+
+<p>这个问题一般是没有处理好不同对象间的依赖关系导致的，开发者应当优先优化依赖关系，以打破依赖循环；<br>如果实在没有办法打破，可以使用 @Lazy 注解指定 Bean 对象延迟加载，即使用时才注册到 IOC 容器；</p>
+<h2 id="数据库问题"><a href="#数据库问题" class="headerlink" title="数据库问题"></a>数据库问题</h2><p>在 Spring Boot 项目中使用了 MyBatis 原生框架或者 MyBatis-Flex 增强框架，你可能会遇到这个启动报错：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">Caused by: java.lang.IllegalArgumentException: Property <span class="hljs-string">&#x27;sqlSessionFactory&#x27;</span> or <span class="hljs-string">&#x27;sqlSessionTemplate&#x27;</span> are required at org.springframework.util.Assert.notNull(Assert.java:172) ~[spring-core-6.1.15.jar:6.1.15] at org.mybatis.spring.support.SqlSessionDaoSupport.checkDaoConfig(SqlSessionDaoSupport.java:122) ~[mybatis-spring-3.0.4.jar:3.0.4] at org.mybatis.spring.mapper.MapperFactoryBean.checkDaoConfig(MapperFactoryBean.java:69) ~[mybatis-spring-3.0.4.jar:3.0.4] at org.springframework.dao.support.DaoSupport.afterPropertiesSet(DaoSupport.java:44) ~[spring-tx-6.1.15.jar:6.1.15] at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853) ~[spring-beans-6.1.15.jar:6.1.15] at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802) ~[spring-beans-6.1.15.jar:6.1.15] ... 79 common frames omitted<br></code></pre></td></tr></table></figure>
+<p>极有可能是缺少 JDBC 相关依赖，需要手动引入（MyBatis-Plus 实测不存在这个问题）；</p>
+<h1 id="运行时异常"><a href="#运行时异常" class="headerlink" title="运行时异常"></a>运行时异常</h1><h1 id=""><a href="#" class="headerlink" title="&lt;- To be continued  _(:3 ∠)__"></a>&lt;- To be continued  _(:3 ∠)__</h1><pre>
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+  _ _   |_  _ _|_. ___ _ |    _ 
+| | |\/|_)(_| | |_\  |_)||_|_\ 
+     /               |         
+
+   __  __       _           _   _       _____ _           
+ |  \/  |_   _| |__   __ _| |_(_)___  |  ___| | _____  __
+ | |\/| | | | | '_ \ / _` | __| / __| | |_  | |/ _ \ \/ /
+ | |  | | |_| | |_) | (_| | |_| \__ \ |  _| | |  __/>  < 
+ |_|  |_|\__, |_.__/ \__,_|\__|_|___/ |_|   |_|\___/_/\_\
+         |___/
+</pre>
+
+<div id="paginator"></div></div><div id="post-footer"><div id="pages" style="justify-content: flex-end"><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/blog233.github.io/2025/01/10/Java%E5%92%96%E5%95%A1%E9%A6%86/">Java咖啡馆 Prev →</a></div></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧ </a><a class="i-index" id="to-index" href="#toc-div" title="To Catalog">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="Change Theme"></a></div></div></article><aside><div id="about"><a href="/blog233.github.io/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">RngAd33</a></h1><div id="description"><p></p></div><div id="social-links"><a class="social" target="_blank" rel="noopener" href="https://github.com/RngAd33"><i class="fab fa-github" alt="GitHub"></i></a><a class="social" href="mailto:yxbsyx@outlook.com"><i class="fa fa-envelope" alt="E-Mail"></i></a><a class="social" target="_blank" rel="noopener" href="https://space.bilibili.com/403699403/favlist?fid=2455564303&amp;ftype=create"><i class="fa-brands fa-bilibili" alt="BiliBili"></i></a></div></div><div id="aside-block"><div id="toc-div"><h1>Catalog</h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-Boot-%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5"><span class="toc-number">1.</span> <span class="toc-text">Spring Boot 启动失败</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8"><span class="toc-number">1.1.</span> <span class="toc-text">端口占用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%E5%A4%B1%E8%B4%A5"><span class="toc-number">1.2.</span> <span class="toc-text">依赖注入失败</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96"><span class="toc-number">1.3.</span> <span class="toc-text">循环依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E9%97%AE%E9%A2%98"><span class="toc-number">1.4.</span> <span class="toc-text">数据库问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E5%BC%82%E5%B8%B8"><span class="toc-number">2.</span> <span class="toc-text">运行时异常</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">&lt;- To be continued  _(:3 ∠)__</span></a></li></ol></div></div><footer><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas></body></html>
