@@ -1,0 +1,439 @@
+<!DOCTYPE html><html lang="cn" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>RngAd33的网络安全笔记</title><link rel="icon" type="image/x-icon" href="/blog233.github.io/favicon.ico"><link rel="preload" as="font" crossorigin="anonymous" href="/blog233.github.io/font/Bender.ttf"><link rel="preload" as="font" crossorigin="anonymous" href="/blog233.github.io/font/BenderLight.ttf"><link rel="preload" as="font" crossorigin="anonymous" href="/blog233.github.io/font/JetBrainsMono-Regular.woff2"><link rel="stylesheet" href="/blog233.github.io/css/arknights.css"><style>@font-face {
+  font-family: Bender;
+  src: local('Bender'), url("/blog233.github.io/font/Bender.ttf"), url("/blog233.github.io/font/Bender.otf");
+}
+@font-face {
+  font-family: BenderLight;
+  src: local('BenderLight'), url("/blog233.github.io/font/BenderLight.ttf");
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local('JetBrains Mono'), url('/blog233.github.io/font/JetBrainsMono-Regular.woff2') format('woff2');
+}
+</style><script>var config = {"root":"/blog233.github.io/","search":{"preload":false,"activeHolder":"Enter here","blurHolder":"Search","noResult":"Data \"$0\" not found"},"code":{"codeInfo":"$0 - $1 lines","copy":"copy"}}</script><link type="text/css" rel="stylesheet" href="/blog233.github.io/lib/encrypt/hbe.style.css"><script src="//unpkg.com/mermaid@10.5.0/dist/mermaid.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script><script>MathJax.Hub.Config({
+ menuSettings: {
+   zoom: "None"
+ },
+ showMathMenu: false,
+ jax: ["input/TeX","output/CommonHTML"],
+ extensions: ["tex2jax.js"],
+ TeX: {
+   extensions: ["AMSmath.js","AMSsymbols.js"],
+   equationNumbers: {
+     autoNumber: "AMS"
+   }
+ },
+ tex2jax: {
+   inlineMath: [["\\(", "\\)"]],
+   displayMath: [["\\[", "\\]"]]
+ }
+});</script><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/blog233.github.io/lib/fontawesome/css/all.min.css"><script>if (window.localStorage.getItem('theme-mode') === 'light')
+ document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark')
+ document.documentElement.setAttribute('theme-mode', 'dark')</script><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/blog233.github.io/font/BenderLight.woff2") format('woff2');
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/blog233.github.io/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><style>:root {
+ --dark-background: url('/blog233.github.io/img/bg.webp');
+ --light-background: url('/blog233.github.io/img/bk.webp');
+ --theme-encrypt-confirm: 'confirm'
+}</style><script defer src="/blog233.github.io/js/arknights.js"></script><script defer src="/blog233.github.io/js/search.js"></script><script defer type="module">import mermaid from '//unpkg.com/mermaid@10.5.0/dist/mermaid.esm.mjs';
+window.mermaid = mermaid;
+code.paintMermaid();
+</script><script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script><script>MathJax.Hub.Config({
+  menuSettings: {
+    zoom: "None"
+  },
+  showMathMenu: false,
+  jax: ["input/TeX","output/CommonHTML"],
+  extensions: ["tex2jax.js"],
+  TeX: {
+    extensions: ["AMSmath.js","AMSsymbols.js"],
+    equationNumbers: {
+      autoNumber: "AMS"
+    }
+  },
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]]
+  }
+});
+</script><script async src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script async src="/blog233.github.io/lib/encrypt/hbe.js"></script><script async src="/blog233.github.io/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js','data-pjax','.busuanzi'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup" tabindex="0"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/blog233.github.io/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/blog233.github.io/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1></h1></div><hr><div id="post-content"><h1 id="Agent面试题：LangChain-和-LangGraph-有什么差异？分别适合构建什么类型-Agent？"><a href="#Agent面试题：LangChain-和-LangGraph-有什么差异？分别适合构建什么类型-Agent？" class="headerlink" title="Agent面试题：LangChain 和 LangGraph 有什么差异？分别适合构建什么类型 Agent？"></a>Agent面试题：LangChain 和 LangGraph 有什么差异？分别适合构建什么类型 Agent？</h1><hr>
+<h2 id="一、面试题原文"><a href="#一、面试题原文" class="headerlink" title="一、面试题原文"></a>一、面试题原文</h2><blockquote>
+<p><strong>面试官问</strong>：LangChain 和 LangGraph 有什么差异？分别适合构建什么类型 Agent？</p>
+</blockquote>
+<p><strong>初级回答（直接pass）</strong>：LangChain是链，LangGraph是图。</p>
+<p><strong>面试官真正想听的</strong>：不是名字上的区别，而是工程选型判断——什么时候用哪个？为什么？底层运行机制有什么不同？</p>
+<hr>
+<h2 id="二、痛点分析"><a href="#二、痛点分析" class="headerlink" title="二、痛点分析"></a>二、痛点分析</h2><table>
+<thead>
+<tr>
+<th>痛点维度</th>
+<th>具体表现</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>认知误区</strong></td>
+<td>很多人以为两者是替代关系，其实是互补关系</td>
+</tr>
+<tr>
+<td><strong>选型困惑</strong></td>
+<td>做Agent到底用LangChain还是LangGraph？新手容易纠结</td>
+</tr>
+<tr>
+<td><strong>工程落地难</strong></td>
+<td>简单任务用LangGraph是过度设计，复杂任务用LangChain会越来越乱</td>
+</tr>
+<tr>
+<td><strong>面试加分点</strong></td>
+<td>能讲出分层架构（组件层+编排层+观测层），比单纯说”链和图”高级很多</td>
+</tr>
+</tbody></table>
+<p><strong>本质问题</strong>：不是”哪个框架更好”，而是”任务复杂度决定技术选型”。</p>
+<hr>
+<h2 id="三、核心概念对比"><a href="#三、核心概念对比" class="headerlink" title="三、核心概念对比"></a>三、核心概念对比</h2><h3 id="一句话定位"><a href="#一句话定位" class="headerlink" title="一句话定位"></a>一句话定位</h3><table>
+<thead>
+<tr>
+<th>框架</th>
+<th>定位</th>
+<th>核心价值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>LangChain</strong></td>
+<td>LLM应用开发框架（组件层）</td>
+<td>快速把LLM应用搭起来</td>
+</tr>
+<tr>
+<td><strong>LangGraph</strong></td>
+<td>Agent编排运行时（编排层）</td>
+<td>复杂流程如何稳定跑起来</td>
+</tr>
+<tr>
+<td><strong>LangSmith</strong></td>
+<td>观测评估平台（观测层）</td>
+<td>全链路追踪、调试、评估</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>面试加分句</strong>：它们不是互相替代，而是同一套工程栈的分层。LangChain提供组件，LangGraph提供编排，LangSmith提供观测。</p>
+</blockquote>
+<hr>
+<h2 id="四、LangChain-详解"><a href="#四、LangChain-详解" class="headerlink" title="四、LangChain 详解"></a>四、LangChain 详解</h2><h3 id="核心特点"><a href="#核心特点" class="headerlink" title="核心特点"></a>核心特点</h3><ul>
+<li><strong>组件多、集成多、上手快</strong></li>
+<li>提供模型、工具、检索器、提示词、Agent的高层抽象</li>
+<li>适合把LLM应用从零拼起来</li>
+</ul>
+<h3 id="典型适用场景"><a href="#典型适用场景" class="headerlink" title="典型适用场景"></a>典型适用场景</h3><table>
+<thead>
+<tr>
+<th>场景</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>简单聊天机器人</td>
+<td>流程固定，单轮或简单多轮对话</td>
+</tr>
+<tr>
+<td>RAG问答系统</td>
+<td>用户提问→检索文档→拼接Prompt→生成答案</td>
+</tr>
+<tr>
+<td>简单工具调用Agent</td>
+<td>调用1-2个工具就能完成任务</td>
+</tr>
+<tr>
+<td>快速Demo验证</td>
+<td>给老板演示效果，快速出原型</td>
+</tr>
+</tbody></table>
+<h3 id="代码特征"><a href="#代码特征" class="headerlink" title="代码特征"></a>代码特征</h3><ul>
+<li>常见写法：<code>create_agent</code>，绑定模型和工具</li>
+<li>封装了默认流程，开发者不需要控制每一步</li>
+<li>偏线性链路：输入→处理→输出</li>
+</ul>
+<hr>
+<h2 id="五、LangGraph-详解"><a href="#五、LangGraph-详解" class="headerlink" title="五、LangGraph 详解"></a>五、LangGraph 详解</h2><h3 id="四大核心概念"><a href="#四大核心概念" class="headerlink" title="四大核心概念"></a>四大核心概念</h3><table>
+<thead>
+<tr>
+<th>概念</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>State（状态）</strong></td>
+<td>共享状态，记录消息、任务、工具结果和中间变量</td>
+</tr>
+<tr>
+<td><strong>Node（节点）</strong></td>
+<td>执行逻辑单元，可以是模型调用，也可以是普通函数</td>
+</tr>
+<tr>
+<td><strong>Edge（边）</strong></td>
+<td>流程跳转，可以固定，也可以是条件分支（ConditionalEdge）</td>
+</tr>
+<tr>
+<td><strong>Reducer（规约器）</strong></td>
+<td>合并状态更新，特别适合并行节点的状态合并</td>
+</tr>
+</tbody></table>
+<h3 id="核心能力"><a href="#核心能力" class="headerlink" title="核心能力"></a>核心能力</h3><table>
+<thead>
+<tr>
+<th>能力</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Checkpoint（检查点）</strong></td>
+<td>保存运行状态，中断后可从断点恢复，不用从头再来</td>
+</tr>
+<tr>
+<td><strong>持久化</strong></td>
+<td>长期任务的状态持久化存储</td>
+</tr>
+<tr>
+<td><strong>流式输出</strong></td>
+<td>支持节点级别的流式输出</td>
+</tr>
+<tr>
+<td><strong>人工介入（Human-in-the-loop）</strong></td>
+<td>流程可暂停，等待人工审批后继续执行</td>
+</tr>
+</tbody></table>
+<h3 id="什么时候必须用LangGraph？"><a href="#什么时候必须用LangGraph？" class="headerlink" title="什么时候必须用LangGraph？"></a>什么时候必须用LangGraph？</h3><table>
+<thead>
+<tr>
+<th>场景</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1. 流程有多个步骤</td>
+<td>步骤多了，链式调用会越来越乱</td>
+</tr>
+<tr>
+<td>2. 中间有条件分支和循环</td>
+<td>需要if&#x2F;else判断、重试循环</td>
+</tr>
+<tr>
+<td>3. 需要人工审批或人工修改状态</td>
+<td>高风险操作需要人工确认</td>
+</tr>
+<tr>
+<td>4. 任务可能跑很久，需要保存进度</td>
+<td>长任务中途中断，要能恢复</td>
+</tr>
+<tr>
+<td>5. 失败后不能重头再来，要从checkpoint恢复</td>
+<td>重跑成本太高</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="六、选型对比矩阵"><a href="#六、选型对比矩阵" class="headerlink" title="六、选型对比矩阵"></a>六、选型对比矩阵</h2><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>LangChain</th>
+<th>LangGraph</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>抽象层次</strong></td>
+<td>更高，封装更多</td>
+<td>更低，控制更细</td>
+</tr>
+<tr>
+<td><strong>学习门槛</strong></td>
+<td>低，上手快</td>
+<td>高，需要理解状态机</td>
+</tr>
+<tr>
+<td><strong>流程模型</strong></td>
+<td>线性链式（DAG）</td>
+<td>循环状态图</td>
+</tr>
+<tr>
+<td><strong>状态管理</strong></td>
+<td>无状态，需手动传历史</td>
+<td>原生共享状态管理</td>
+</tr>
+<tr>
+<td><strong>分支循环</strong></td>
+<td>支持有限</td>
+<td>原生支持条件分支、循环</td>
+</tr>
+<tr>
+<td><strong>中断恢复</strong></td>
+<td>不支持</td>
+<td>原生Checkpoint支持</td>
+</tr>
+<tr>
+<td><strong>人工介入</strong></td>
+<td>不原生支持</td>
+<td>原生支持暂停&#x2F;恢复</td>
+</tr>
+<tr>
+<td><strong>适合任务复杂度</strong></td>
+<td>低-中等</td>
+<td>中-高</td>
+</tr>
+<tr>
+<td><strong>开发效率</strong></td>
+<td>高，快速出活</td>
+<td>中等，需要设计状态图</td>
+</tr>
+<tr>
+<td><strong>可维护性</strong></td>
+<td>简单场景好，复杂场景乱</td>
+<td>复杂场景清晰可控</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="七、选型口诀"><a href="#七、选型口诀" class="headerlink" title="七、选型口诀"></a>七、选型口诀</h2><blockquote>
+<p><strong>简单用LC，复杂用LG</strong></p>
+<ul>
+<li><strong>组件集成用LC</strong>：接模型、接工具、做RAG、快速拼应用</li>
+<li><strong>流程状态用LG</strong>：多步骤、长任务、人工审批、失败恢复</li>
+</ul>
+</blockquote>
+<h3 id="具体判断"><a href="#具体判断" class="headerlink" title="具体判断"></a>具体判断</h3><table>
+<thead>
+<tr>
+<th>业务场景</th>
+<th>推荐方案</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>公司制度问答（RAG）</td>
+<td>LangChain ✅</td>
+</tr>
+<tr>
+<td>单轮工具调用查询</td>
+<td>LangChain ✅</td>
+</tr>
+<tr>
+<td>客服处理Agent（分类→查库→判断退款→人工审批）</td>
+<td>LangGraph ✅</td>
+</tr>
+<tr>
+<td>数据分析Agent（写SQL→执行→失败重试→分析→报告）</td>
+<td>LangGraph ✅</td>
+</tr>
+<tr>
+<td>多Agent协作任务分配</td>
+<td>LangGraph ✅</td>
+</tr>
+<tr>
+<td>快速Demo给老板看</td>
+<td>LangChain ✅</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="八、常见误区"><a href="#八、常见误区" class="headerlink" title="八、常见误区"></a>八、常见误区</h2><table>
+<thead>
+<tr>
+<th>误区</th>
+<th>纠正</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>❌ LangChain就是链，LangGraph就是图</td>
+<td>✅ 不只是名字，本质是组件框架 vs 编排运行时</td>
+</tr>
+<tr>
+<td>❌ 两者是替代关系，用了一个就不用另一个</td>
+<td>✅ 生产中通常组合使用：LangChain组件 + LangGraph编排</td>
+</tr>
+<tr>
+<td>❌ 复杂项目直接上LangGraph</td>
+<td>✅ 简单任务用图是过度设计，增加复杂度</td>
+</tr>
+<tr>
+<td>❌ LangChain已经过时了</td>
+<td>✅ 垂直行业RAG场景依然是基石，没过时</td>
+</tr>
+<tr>
+<td>❌ Agent出错了看模型回答就行</td>
+<td>✅ LangGraph要先看State对不对，再看Node执行，再看Edge分支，最后才看模型</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="九、面试标准回答模板"><a href="#九、面试标准回答模板" class="headerlink" title="九、面试标准回答模板"></a>九、面试标准回答模板</h2><blockquote>
+<p>面试官您好，我是这样理解的：</p>
+<p><strong>第一，定位不同</strong>。LangChain更偏LLM应用框架，提供模型、工具、检索、提示词的高层抽象，核心是快速搭建应用。LangGraph更偏Agent编排运行时，用状态图管理多步骤、分支、循环、持久化和人工介入。</p>
+<p><strong>第二，能力侧重不同</strong>。LangChain优势是组件多、集成多、上手快，适合线性流程的RAG问答和简单工具调用。LangGraph优势是状态管理、条件分支、中断恢复、人工介入，适合复杂长任务。</p>
+<p><strong>第三，生产中通常组合使用</strong>。用LangChain的组件能力接模型、绑工具、做检索，再用LangGraph做流程调度和状态管理，最后配LangSmith做全链路观测。</p>
+<p><strong>选型上</strong>：简单RAG和单轮工具调用用LangChain更快；多步骤、长任务、需要人工审批和失败恢复的场景用LangGraph更稳。</p>
+</blockquote>
+<hr>
+<h2 id="十、延伸追问预测"><a href="#十、延伸追问预测" class="headerlink" title="十、延伸追问预测"></a>十、延伸追问预测</h2><table>
+<thead>
+<tr>
+<th>可能追问</th>
+<th>答题方向</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>LangGraph的State怎么设计？</td>
+<td>共享状态字典、Reducer合并、避免状态膨胀</td>
+</tr>
+<tr>
+<td>怎么解决Agent死循环问题？</td>
+<td>设置递归深度上限、循环检测、超时退出</td>
+</tr>
+<tr>
+<td>状态膨胀怎么处理？</td>
+<td>只传增量、子图拆分、定期清理历史</td>
+</tr>
+<tr>
+<td>不用LangGraph，自己怎么实现状态机？</td>
+<td>节点+边+状态字典+Checkpoint序列化</td>
+</tr>
+<tr>
+<td>LangChain版本更新快，升级踩过坑吗？</td>
+<td>封装底层、版本锁定、升级回归测试</td>
+</tr>
+<tr>
+<td>Multi-Agent场景怎么选？</td>
+<td>LangGraph做多Agent编排，注意分布式调度和锁机制</td>
+</tr>
+</tbody></table>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages" style="justify-content: flex-end"><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/blog233.github.io/2026/10/22/AI/RAG%E9%9D%A2%E8%AF%95%E9%A2%98-%E7%9F%A5%E8%AF%86%E5%BA%93%E6%9D%83%E9%99%90%E9%9A%94%E7%A6%BB%E8%AE%BE%E8%AE%A1/"> Prev →</a></div></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧ </a><a class="i-index" id="to-index" href="#toc-div" title="To Catalog">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="Change Theme"></a></div></div></article><aside><div id="about"><a href="/blog233.github.io/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">RngAd33</a></h1><div id="description"><p></p></div><div id="social-links"><a class="social" target="_blank" rel="noopener" href="https://github.com/RngAd33"><i class="fab fa-github" alt="GitHub"></i></a><a class="social" href="mailto:yxbsyx@outlook.com"><i class="fa fa-envelope" alt="E-Mail"></i></a><a class="social" target="_blank" rel="noopener" href="https://space.bilibili.com/403699403/favlist?fid=2455564303&amp;ftype=create"><i class="fa-brands fa-bilibili" alt="BiliBili"></i></a></div></div><div id="aside-block"><div id="toc-div"><h1>Catalog</h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Agent%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%9ALangChain-%E5%92%8C-LangGraph-%E6%9C%89%E4%BB%80%E4%B9%88%E5%B7%AE%E5%BC%82%EF%BC%9F%E5%88%86%E5%88%AB%E9%80%82%E5%90%88%E6%9E%84%E5%BB%BA%E4%BB%80%E4%B9%88%E7%B1%BB%E5%9E%8B-Agent%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">Agent面试题：LangChain 和 LangGraph 有什么差异？分别适合构建什么类型 Agent？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E9%9D%A2%E8%AF%95%E9%A2%98%E5%8E%9F%E6%96%87"><span class="toc-number">1.1.</span> <span class="toc-text">一、面试题原文</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%97%9B%E7%82%B9%E5%88%86%E6%9E%90"><span class="toc-number">1.2.</span> <span class="toc-text">二、痛点分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5%E5%AF%B9%E6%AF%94"><span class="toc-number">1.3.</span> <span class="toc-text">三、核心概念对比</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E5%8F%A5%E8%AF%9D%E5%AE%9A%E4%BD%8D"><span class="toc-number">1.3.1.</span> <span class="toc-text">一句话定位</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81LangChain-%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.4.</span> <span class="toc-text">四、LangChain 详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E7%89%B9%E7%82%B9"><span class="toc-number">1.4.1.</span> <span class="toc-text">核心特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B8%E5%9E%8B%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">1.4.2.</span> <span class="toc-text">典型适用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E7%89%B9%E5%BE%81"><span class="toc-number">1.4.3.</span> <span class="toc-text">代码特征</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81LangGraph-%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.5.</span> <span class="toc-text">五、LangGraph 详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E5%A4%A7%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5"><span class="toc-number">1.5.1.</span> <span class="toc-text">四大核心概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E8%83%BD%E5%8A%9B"><span class="toc-number">1.5.2.</span> <span class="toc-text">核心能力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%BF%85%E9%A1%BB%E7%94%A8LangGraph%EF%BC%9F"><span class="toc-number">1.5.3.</span> <span class="toc-text">什么时候必须用LangGraph？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E9%80%89%E5%9E%8B%E5%AF%B9%E6%AF%94%E7%9F%A9%E9%98%B5"><span class="toc-number">1.6.</span> <span class="toc-text">六、选型对比矩阵</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E9%80%89%E5%9E%8B%E5%8F%A3%E8%AF%80"><span class="toc-number">1.7.</span> <span class="toc-text">七、选型口诀</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E5%88%A4%E6%96%AD"><span class="toc-number">1.7.1.</span> <span class="toc-text">具体判断</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E5%B8%B8%E8%A7%81%E8%AF%AF%E5%8C%BA"><span class="toc-number">1.8.</span> <span class="toc-text">八、常见误区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E9%9D%A2%E8%AF%95%E6%A0%87%E5%87%86%E5%9B%9E%E7%AD%94%E6%A8%A1%E6%9D%BF"><span class="toc-number">1.9.</span> <span class="toc-text">九、面试标准回答模板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E3%80%81%E5%BB%B6%E4%BC%B8%E8%BF%BD%E9%97%AE%E9%A2%84%E6%B5%8B"><span class="toc-number">1.10.</span> <span class="toc-text">十、延伸追问预测</span></a></li></ol></li></ol></div></div><footer><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas></body></html>

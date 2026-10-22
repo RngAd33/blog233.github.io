@@ -1,0 +1,373 @@
+<!DOCTYPE html><html lang="cn" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>RngAd33的网络安全笔记</title><link rel="icon" type="image/x-icon" href="/blog233.github.io/favicon.ico"><link rel="preload" as="font" crossorigin="anonymous" href="/blog233.github.io/font/Bender.ttf"><link rel="preload" as="font" crossorigin="anonymous" href="/blog233.github.io/font/BenderLight.ttf"><link rel="preload" as="font" crossorigin="anonymous" href="/blog233.github.io/font/JetBrainsMono-Regular.woff2"><link rel="stylesheet" href="/blog233.github.io/css/arknights.css"><style>@font-face {
+  font-family: Bender;
+  src: local('Bender'), url("/blog233.github.io/font/Bender.ttf"), url("/blog233.github.io/font/Bender.otf");
+}
+@font-face {
+  font-family: BenderLight;
+  src: local('BenderLight'), url("/blog233.github.io/font/BenderLight.ttf");
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local('JetBrains Mono'), url('/blog233.github.io/font/JetBrainsMono-Regular.woff2') format('woff2');
+}
+</style><script>var config = {"root":"/blog233.github.io/","search":{"preload":false,"activeHolder":"Enter here","blurHolder":"Search","noResult":"Data \"$0\" not found"},"code":{"codeInfo":"$0 - $1 lines","copy":"copy"}}</script><link type="text/css" rel="stylesheet" href="/blog233.github.io/lib/encrypt/hbe.style.css"><script src="//unpkg.com/mermaid@10.5.0/dist/mermaid.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script><script>MathJax.Hub.Config({
+ menuSettings: {
+   zoom: "None"
+ },
+ showMathMenu: false,
+ jax: ["input/TeX","output/CommonHTML"],
+ extensions: ["tex2jax.js"],
+ TeX: {
+   extensions: ["AMSmath.js","AMSsymbols.js"],
+   equationNumbers: {
+     autoNumber: "AMS"
+   }
+ },
+ tex2jax: {
+   inlineMath: [["\\(", "\\)"]],
+   displayMath: [["\\[", "\\]"]]
+ }
+});</script><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/blog233.github.io/lib/fontawesome/css/all.min.css"><script>if (window.localStorage.getItem('theme-mode') === 'light')
+ document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark')
+ document.documentElement.setAttribute('theme-mode', 'dark')</script><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/blog233.github.io/font/BenderLight.woff2") format('woff2');
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/blog233.github.io/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><style>:root {
+ --dark-background: url('/blog233.github.io/img/bg.webp');
+ --light-background: url('/blog233.github.io/img/bk.webp');
+ --theme-encrypt-confirm: 'confirm'
+}</style><script defer src="/blog233.github.io/js/arknights.js"></script><script defer src="/blog233.github.io/js/search.js"></script><script defer type="module">import mermaid from '//unpkg.com/mermaid@10.5.0/dist/mermaid.esm.mjs';
+window.mermaid = mermaid;
+code.paintMermaid();
+</script><script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script><script>MathJax.Hub.Config({
+  menuSettings: {
+    zoom: "None"
+  },
+  showMathMenu: false,
+  jax: ["input/TeX","output/CommonHTML"],
+  extensions: ["tex2jax.js"],
+  TeX: {
+    extensions: ["AMSmath.js","AMSsymbols.js"],
+    equationNumbers: {
+      autoNumber: "AMS"
+    }
+  },
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]]
+  }
+});
+</script><script async src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script async src="/blog233.github.io/lib/encrypt/hbe.js"></script><script async src="/blog233.github.io/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js','data-pjax','.busuanzi'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup" tabindex="0"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/blog233.github.io/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/blog233.github.io/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1></h1></div><hr><div id="post-content"><h1 id="RAG面试题：企业级RAG知识库权限隔离怎么设计？"><a href="#RAG面试题：企业级RAG知识库权限隔离怎么设计？" class="headerlink" title="RAG面试题：企业级RAG知识库权限隔离怎么设计？"></a>RAG面试题：企业级RAG知识库权限隔离怎么设计？</h1><hr>
+<h2 id="一、面试题原文"><a href="#一、面试题原文" class="headerlink" title="一、面试题原文"></a>一、面试题原文</h2><blockquote>
+<p><strong>面试官问</strong>：企业级RAG知识库权限隔离怎么设计？不同部门、不同级别的员工，只能看到自己有权限的文档，怎么实现？</p>
+</blockquote>
+<p><strong>初级回答（被pass）</strong>：</p>
+<ul>
+<li>把所有文档都检索出来，然后在后端过滤一遍</li>
+<li>先按权限过滤，再做向量检索</li>
+</ul>
+<blockquote>
+<p>❌ 这两种做法看起来简单，但上线后要么数据泄露，要么性能崩溃。</p>
+</blockquote>
+<p><strong>面试官真正想听的</strong>：两种常见错误方案的坑，以及正确的<strong>元数据混合检索架构</strong>。</p>
+<hr>
+<h2 id="二、痛点分析"><a href="#二、痛点分析" class="headerlink" title="二、痛点分析"></a>二、痛点分析</h2><table>
+<thead>
+<tr>
+<th>痛点维度</th>
+<th>具体表现</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>企业场景</strong></td>
+<td>大公司知识库几万几十万文档，不同部门不同密级</td>
+</tr>
+<tr>
+<td><strong>权限复杂</strong></td>
+<td>文档级权限、部门级权限、角色级权限、密级权限交织</td>
+</tr>
+<tr>
+<td><strong>性能要求</strong></td>
+<td>检索要快，用户等不了几秒</td>
+</tr>
+<tr>
+<td><strong>安全要求</strong></td>
+<td>无权限的文档绝对不能进入上下文</td>
+</tr>
+<tr>
+<td><strong>两难困境</strong></td>
+<td>先过滤性能差，先过滤又漏数据，怎么平衡？</td>
+</tr>
+</tbody></table>
+<p><strong>核心矛盾</strong>：安全（不能漏）和性能（不能慢）之间的平衡。</p>
+<hr>
+<h2 id="三、两种错误方案（坑点分析）"><a href="#三、两种错误方案（坑点分析）" class="headerlink" title="三、两种错误方案（坑点分析）"></a>三、两种错误方案（坑点分析）</h2><h3 id="错误方案一：先检索后过滤"><a href="#错误方案一：先检索后过滤" class="headerlink" title="错误方案一：先检索后过滤"></a>错误方案一：先检索后过滤</h3><p><strong>做法</strong>：先做向量检索召回Top-K文档，然后在后端按权限过滤掉用户无权访问的文档。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">向量检索 Top 100 篇<br>    ↓<br>后端过滤掉 80 篇无权的<br>    ↓<br>剩下 20 篇给模型<br></code></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>漏斗坍塌</strong></td>
+<td>检索100篇，过滤完只剩20篇，甚至更少</td>
+</tr>
+<tr>
+<td><strong>召回质量差</strong></td>
+<td>剩下的20篇可能不是最相关的，最相关的那篇刚好被过滤了</td>
+</tr>
+<tr>
+<td><strong>安全隐患</strong></td>
+<td>无权文档已经进入系统内存了，虽然过滤了，但技术上已经”看到了”</td>
+</tr>
+<tr>
+<td><strong>无法上线</strong></td>
+<td>真实场景下，过滤率可能高达90%，检索结果完全没法用</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>一句话总结</strong>：先检索后过滤 &#x3D; 漏斗坍塌，最后剩不下几篇能用的。</p>
+</blockquote>
+<hr>
+<h3 id="错误方案二：先过滤后检索"><a href="#错误方案二：先过滤后检索" class="headerlink" title="错误方案二：先过滤后检索"></a>错误方案二：先过滤后检索</h3><p><strong>做法</strong>：先按权限把有权限的文档全部筛出来，然后在这个子集里做向量检索。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">按权限过滤出 10000 篇有权文档<br>    ↓<br>在这 10000 篇里做向量检索 Top 10<br></code></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>性能灾难</strong></td>
+<td>每次检索都要先过滤几万篇文档，再做向量计算</td>
+</tr>
+<tr>
+<td><strong>向量库不支持</strong></td>
+<td>传统向量数据库（如早期的Faiss）不支持元数据过滤</td>
+</tr>
+<tr>
+<td><strong>计算量爆炸</strong></td>
+<td>权限组合太多，每个用户的有权文档子集都不一样</td>
+</tr>
+<tr>
+<td><strong>系统宕机</strong></td>
+<td>用户量一大，每次检索都要过滤一遍，数据库直接扛不住</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>一句话总结</strong>：先过滤后检索 &#x3D; 性能灾难，系统直接宕机。</p>
+</blockquote>
+<hr>
+<h2 id="四、正确方案：元数据混合检索架构"><a href="#四、正确方案：元数据混合检索架构" class="headerlink" title="四、正确方案：元数据混合检索架构"></a>四、正确方案：元数据混合检索架构</h2><p><strong>核心思路</strong>：把权限标签和向量数据存在一起，在向量检索的<strong>内部</strong>就完成权限过滤，而不是在检索前或检索后。</p>
+<h3 id="架构图"><a href="#架构图" class="headerlink" title="架构图"></a>架构图</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">文档切片 → 向量化 + 权限元数据标注 → 存入向量库<br>                                        ↓<br>用户提问 → 向量化 + 用户权限信息 → 向量库混合检索<br>                                        ↓<br>                        （相似度计算 + 权限过滤同时进行）<br>                                        ↓<br>                              只返回有权限的高相关文档<br></code></pre></td></tr></table></figure>
+
+<h3 id="关键设计"><a href="#关键设计" class="headerlink" title="关键设计"></a>关键设计</h3><table>
+<thead>
+<tr>
+<th>设计点</th>
+<th>具体做法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>权限标签写入向量</strong></td>
+<td>每个文档Chunk入库时，同时写入：部门、密级、可见角色、租户ID等元数据</td>
+</tr>
+<tr>
+<td><strong>向量库原生支持过滤</strong></td>
+<td>使用支持元数据过滤的向量数据库（Milvus、Weaviate、Pinecone、PGVector等）</td>
+</tr>
+<tr>
+<td><strong>检索时同时计算</strong></td>
+<td>相似度计算和权限过滤在向量数据库内部完成，不是检索后再过滤</td>
+</tr>
+<tr>
+<td><strong>向量索引+倒排索引结合</strong></td>
+<td>向量索引负责相似度，倒排索引负责权限过滤，两者并行</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="五、技术实现细节"><a href="#五、技术实现细节" class="headerlink" title="五、技术实现细节"></a>五、技术实现细节</h2><h3 id="1-文档入库时打标签"><a href="#1-文档入库时打标签" class="headerlink" title="1. 文档入库时打标签"></a>1. 文档入库时打标签</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;chunk_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;doc_123_chunk_5&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;content&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2026年Q3销售数据...&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;embedding&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-number">0.12</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0.34</span><span class="hljs-punctuation">,</span> ...<span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;metadata&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;department&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;sales&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;security_level&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">3</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;tenant_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;company_a&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;author&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;zhangsan&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;visible_roles&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;sales_manager&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;director&quot;</span><span class="hljs-punctuation">]</span><br>  <span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="2-检索时带权限过滤"><a href="#2-检索时带权限过滤" class="headerlink" title="2. 检索时带权限过滤"></a>2. 检索时带权限过滤</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Milvus 示例</span><br>results = collection.search(<br>    data=[query_embedding],<br>    anns_field=<span class="hljs-string">&quot;embedding&quot;</span>,<br>    param=&#123;<span class="hljs-string">&quot;metric_type&quot;</span>: <span class="hljs-string">&quot;COSINE&quot;</span>, <span class="hljs-string">&quot;params&quot;</span>: &#123;<span class="hljs-string">&quot;nprobe&quot;</span>: <span class="hljs-number">10</span>&#125;&#125;,<br>    limit=<span class="hljs-number">10</span>,<br>    <span class="hljs-comment"># 关键：在向量检索的同时做权限过滤</span><br>    expr=<span class="hljs-string">&#x27;department == &quot;sales&quot; &amp;&amp; security_level &lt;= 2 &amp;&amp; tenant_id == &quot;company_a&quot;&#x27;</span><br>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="3-效果对比"><a href="#3-效果对比" class="headerlink" title="3. 效果对比"></a>3. 效果对比</h3><table>
+<thead>
+<tr>
+<th>方案</th>
+<th>召回数量</th>
+<th>过滤后剩余</th>
+<th>性能</th>
+<th>安全</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>先检索后过滤</td>
+<td>100篇</td>
+<td>20篇</td>
+<td>快</td>
+<td>❌ 漏斗坍塌</td>
+</tr>
+<tr>
+<td>先过滤后检索</td>
+<td>全量</td>
+<td>10篇</td>
+<td>慢</td>
+<td>✅ 安全</td>
+</tr>
+<tr>
+<td><strong>元数据混合检索</strong></td>
+<td><strong>10篇</strong></td>
+<td><strong>10篇</strong></td>
+<td><strong>快</strong></td>
+<td><strong>✅ 安全</strong></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="六、进阶问题：权限变更怎么办？"><a href="#六、进阶问题：权限变更怎么办？" class="headerlink" title="六、进阶问题：权限变更怎么办？"></a>六、进阶问题：权限变更怎么办？</h2><blockquote>
+<p><strong>面试官追问</strong>：如果张三的部门从销售部调到了市场部，那他之前有权限看的销售文档，现在是不是就不能看了？向量库里的标签要重跑吗？</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>权限是用户属性</strong></td>
+<td>权限标签是打在<strong>文档</strong>上的，不是打在<strong>用户</strong>上的</td>
+</tr>
+<tr>
+<td><strong>用户权限动态计算</strong></td>
+<td>每次检索时，实时根据用户当前的角色、部门、密级生成过滤条件</td>
+</tr>
+<tr>
+<td><strong>文档权限变更</strong></td>
+<td>如果文档的权限标签变了，更新文档的metadata就行，不用重新向量化</td>
+</tr>
+<tr>
+<td><strong>用户权限变更</strong></td>
+<td>不用动向量库，下次检索时用新的权限条件过滤就行</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>核心认知</strong>：权限是”检索时动态计算”的，不是”入库时写死”的。</p>
+</blockquote>
+<hr>
+<h2 id="七、常见误区"><a href="#七、常见误区" class="headerlink" title="七、常见误区"></a>七、常见误区</h2><table>
+<thead>
+<tr>
+<th>误区</th>
+<th>纠正</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>❌ 先检索100篇再过滤</td>
+<td>✅ 漏斗坍塌，召回质量差，应该在检索内部过滤</td>
+</tr>
+<tr>
+<td>❌ 先过滤全量再检索</td>
+<td>✅ 性能灾难，要选支持混合检索的向量库</td>
+</tr>
+<tr>
+<td>❌ 权限变更要重新向量化</td>
+<td>✅ 权限是metadata，更新metadata就行，不用重跑embedding</td>
+</tr>
+<tr>
+<td>❌ 所有文档放一个库，靠代码过滤</td>
+<td>✅ 大文档量下扛不住，要用向量库原生的过滤能力</td>
+</tr>
+<tr>
+<td>❌ 部门级权限就够了</td>
+<td>✅ 真实场景还有文档级、密级、角色、租户多维权限</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="八、面试标准回答模板"><a href="#八、面试标准回答模板" class="headerlink" title="八、面试标准回答模板"></a>八、面试标准回答模板</h2><blockquote>
+<p>面试官您好，企业级RAG权限隔离我是这样设计的：</p>
+<p><strong>首先，两种常见做法都有坑</strong>：先检索后过滤会导致漏斗坍塌，召回质量差；先过滤后检索会导致性能灾难，系统扛不住。</p>
+<p><strong>正确的做法是元数据混合检索架构</strong>：</p>
+<ol>
+<li>文档入库时，除了向量化，同时写入权限元数据（部门、密级、租户、可见角色）</li>
+<li>选用支持元数据过滤的向量数据库（Milvus、PGVector等）</li>
+<li>检索时，把用户的权限条件作为过滤表达式，和向量相似度计算一起在数据库内部完成</li>
+<li>这样返回的结果天然就是用户有权限的，既保证安全，又保证性能</li>
+</ol>
+<p><strong>权限变更方面</strong>：权限是检索时动态计算的，用户角色变了不用动向量库，下次检索用新条件就行；文档权限变了更新metadata即可，不用重新向量化。</p>
+</blockquote>
+<hr>
+<h2 id="九、延伸追问预测"><a href="#九、延伸追问预测" class="headerlink" title="九、延伸追问预测"></a>九、延伸追问预测</h2><table>
+<thead>
+<tr>
+<th>可能追问</th>
+<th>答题方向</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>哪些向量库支持元数据混合检索？</td>
+<td>Milvus、Weaviate、Pinecone、PGVector、Chroma（新版本）</td>
+</tr>
+<tr>
+<td>权限维度太多，过滤表达式怎么设计？</td>
+<td>权限模型设计、ABAC&#x2F;RBAC结合、权限缓存</td>
+</tr>
+<tr>
+<td>怎么测试权限隔离是否真的有效？</td>
+<td>低权限越权测试、不同角色对比测试、自动化回归</td>
+</tr>
+<tr>
+<td>多租户场景怎么设计？</td>
+<td>tenant_id作为强制过滤条件，物理隔离vs逻辑隔离的选择</td>
+</tr>
+<tr>
+<td>文档更新了权限标签要重跑embedding吗？</td>
+<td>不用，metadata更新是轻量操作，embedding不变</td>
+</tr>
+<tr>
+<td>混合检索的性能损耗大吗？</td>
+<td>取决于向量库实现，好的实现性能损耗很小，远好于应用层过滤</td>
+</tr>
+</tbody></table>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/blog233.github.io/2026/10/22/AI/Agent%E9%9D%A2%E8%AF%95%E9%A2%98-LangChain%E4%B8%8ELangGraph%E5%B7%AE%E5%BC%82%E4%B8%8E%E9%80%89%E5%9E%8B/">← Next </a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/blog233.github.io/2026/05/09/BUG%E6%8E%92%E6%9F%A5%E6%89%8B%E5%86%8C/">BUG排查手册 Prev →</a></div></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧ </a><a class="i-index" id="to-index" href="#toc-div" title="To Catalog">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="Change Theme"></a></div></div></article><aside><div id="about"><a href="/blog233.github.io/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">RngAd33</a></h1><div id="description"><p></p></div><div id="social-links"><a class="social" target="_blank" rel="noopener" href="https://github.com/RngAd33"><i class="fab fa-github" alt="GitHub"></i></a><a class="social" href="mailto:yxbsyx@outlook.com"><i class="fa fa-envelope" alt="E-Mail"></i></a><a class="social" target="_blank" rel="noopener" href="https://space.bilibili.com/403699403/favlist?fid=2455564303&amp;ftype=create"><i class="fa-brands fa-bilibili" alt="BiliBili"></i></a></div></div><div id="aside-block"><div id="toc-div"><h1>Catalog</h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#RAG%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%9A%E4%BC%81%E4%B8%9A%E7%BA%A7RAG%E7%9F%A5%E8%AF%86%E5%BA%93%E6%9D%83%E9%99%90%E9%9A%94%E7%A6%BB%E6%80%8E%E4%B9%88%E8%AE%BE%E8%AE%A1%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">RAG面试题：企业级RAG知识库权限隔离怎么设计？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E9%9D%A2%E8%AF%95%E9%A2%98%E5%8E%9F%E6%96%87"><span class="toc-number">1.1.</span> <span class="toc-text">一、面试题原文</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%97%9B%E7%82%B9%E5%88%86%E6%9E%90"><span class="toc-number">1.2.</span> <span class="toc-text">二、痛点分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E4%B8%A4%E7%A7%8D%E9%94%99%E8%AF%AF%E6%96%B9%E6%A1%88%EF%BC%88%E5%9D%91%E7%82%B9%E5%88%86%E6%9E%90%EF%BC%89"><span class="toc-number">1.3.</span> <span class="toc-text">三、两种错误方案（坑点分析）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%99%E8%AF%AF%E6%96%B9%E6%A1%88%E4%B8%80%EF%BC%9A%E5%85%88%E6%A3%80%E7%B4%A2%E5%90%8E%E8%BF%87%E6%BB%A4"><span class="toc-number">1.3.1.</span> <span class="toc-text">错误方案一：先检索后过滤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%99%E8%AF%AF%E6%96%B9%E6%A1%88%E4%BA%8C%EF%BC%9A%E5%85%88%E8%BF%87%E6%BB%A4%E5%90%8E%E6%A3%80%E7%B4%A2"><span class="toc-number">1.3.2.</span> <span class="toc-text">错误方案二：先过滤后检索</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%AD%A3%E7%A1%AE%E6%96%B9%E6%A1%88%EF%BC%9A%E5%85%83%E6%95%B0%E6%8D%AE%E6%B7%B7%E5%90%88%E6%A3%80%E7%B4%A2%E6%9E%B6%E6%9E%84"><span class="toc-number">1.4.</span> <span class="toc-text">四、正确方案：元数据混合检索架构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84%E5%9B%BE"><span class="toc-number">1.4.1.</span> <span class="toc-text">架构图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.4.2.</span> <span class="toc-text">关键设计</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0%E7%BB%86%E8%8A%82"><span class="toc-number">1.5.</span> <span class="toc-text">五、技术实现细节</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%96%87%E6%A1%A3%E5%85%A5%E5%BA%93%E6%97%B6%E6%89%93%E6%A0%87%E7%AD%BE"><span class="toc-number">1.5.1.</span> <span class="toc-text">1. 文档入库时打标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%A3%80%E7%B4%A2%E6%97%B6%E5%B8%A6%E6%9D%83%E9%99%90%E8%BF%87%E6%BB%A4"><span class="toc-number">1.5.2.</span> <span class="toc-text">2. 检索时带权限过滤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%95%88%E6%9E%9C%E5%AF%B9%E6%AF%94"><span class="toc-number">1.5.3.</span> <span class="toc-text">3. 效果对比</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E8%BF%9B%E9%98%B6%E9%97%AE%E9%A2%98%EF%BC%9A%E6%9D%83%E9%99%90%E5%8F%98%E6%9B%B4%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F"><span class="toc-number">1.6.</span> <span class="toc-text">六、进阶问题：权限变更怎么办？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E5%B8%B8%E8%A7%81%E8%AF%AF%E5%8C%BA"><span class="toc-number">1.7.</span> <span class="toc-text">七、常见误区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E9%9D%A2%E8%AF%95%E6%A0%87%E5%87%86%E5%9B%9E%E7%AD%94%E6%A8%A1%E6%9D%BF"><span class="toc-number">1.8.</span> <span class="toc-text">八、面试标准回答模板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E5%BB%B6%E4%BC%B8%E8%BF%BD%E9%97%AE%E9%A2%84%E6%B5%8B"><span class="toc-number">1.9.</span> <span class="toc-text">九、延伸追问预测</span></a></li></ol></li></ol></div></div><footer><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas></body></html>
